@@ -35,3 +35,23 @@
     }
   }
 }
+@media (max-width: 500px) {
+  .container {
+    font-size: 15px;
+
+    ul {
+      li {
+        margin-right: 15px;
+
+        &:first-child {
+          margin-right: 25px;
+        }
+
+        &:last-child {
+          // margin-right: 5px;
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
 import useSWR from "swr";
-import { apiClient } from "../../clients/appClients";
+import { apiClient } from "../clients/appClients";
 
 export const useGetEpisode = (
   endpoint: string

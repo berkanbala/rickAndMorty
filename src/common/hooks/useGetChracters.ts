@@ -1,12 +1,11 @@
 import useSWR from "swr";
-import { apiClient } from "../../clients/appClients";
+import { apiClient } from "../clients/appClients";
 
-export const useGetCharactersDetails = (
-  id: string
-): {
-  characterDetails: any;
-  characterDetailsLoading: boolean;
-  characterDetailsError: any;
+export const useGetChracters = (): {
+  characters: any;
+  charactersLoading: boolean;
+  charactersError: any;
+  currentPage: any;
 } => {
   const rickAndMortyApiClient = apiClient({});
 
@@ -14,18 +13,18 @@ export const useGetCharactersDetails = (
     rickAndMortyApiClient.get(url).then((response) => response.data);
   const shouldFetch = !!rickAndMortyApiClient;
 
-  const url = shouldFetch
-    ? `https://rickandmortyapi.com/api/character/${id}`
-    : null;
+  const url = shouldFetch ? "https://rickandmortyapi.com/api/character" : null;
 
   const { data, error, isValidating } = useSWR(url, fetcher, {
     revalidateIfStale: false,
     revalidateOnFocus: false,
     revalidateOnReconnect: false,
   });
+
   return {
-    characterDetails: data || null,
-    characterDetailsLoading: isValidating,
-    characterDetailsError: error,
+    characters: data || null,
+    charactersLoading: isValidating,
+    charactersError: error,
+    currentPage: null,
   };
 };

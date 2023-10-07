@@ -1,0 +1,90 @@
+@import "../../common/assets/styles/variables.scss";
+
+:root {
+  --link-color: #a105a1;
+  --tink-color: #a10505;
+}
+
+%boxshadow {
+  box-shadow: 4px 4px 9.6px #a09999, 0 8px 18px #000000;
+}
+.container {
+  width: 360px;
+  color: #454545;
+  display: grid;
+  justify-items: stretch;
+  justify-content: stretch;
+  border-radius: 6px;
+  overflow: hidden;
+
+  @extend %boxshadow;
+
+  .title {
+    font-size: 18px;
+    background-color: #659c2b;
+    color: #000000;
+    padding: 24px;
+    border-radius: 6px 6px 0 0;
+    display: flex;
+    justify-content: center;
+    gap: 2px;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: rgba(222, 184, 135, 0.441);
+
+    .image {
+      width: 200px;
+      height: 100%;
+      overflow: hidden;
+      border-radius: 0 0 0 5px;
+      display: flex;
+    }
+    .grad {
+      display: grid;
+      align-items: center;
+      justify-items: stretch;
+
+      .status {
+        padding: 10px;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .dot {
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background-color: #55cc44;
+          margin-right: 15px;
+        }
+
+        .redDot {
+          background-color: #d63d2e;
+        }
+      }
+      .text {
+        display: flex;
+        flex-direction: column;
+        font-size: 16px;
+        margin-left: 15px;
+        align-items: center;
+        gap: 4px;
+
+        span {
+          &:first-child {
+            color: $blue;
+          }
+
+          &:last-child {
+            color: #ea0a0aa0;
+          }
+        }
+      }
+    }
+  }
+}

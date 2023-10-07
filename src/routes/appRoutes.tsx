@@ -5,12 +5,10 @@ import { NotFound } from "../pages/notFound/notFound";
 
 export const AppRoutes = () => {
   return (
-    // <Router location={""} navigator={}>
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/details:id" element={<CharacterDetails />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
-    // </Router>
   );
 };
