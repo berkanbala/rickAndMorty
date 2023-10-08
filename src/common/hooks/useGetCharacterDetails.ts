@@ -1,7 +1,7 @@
 import useSWR from "swr";
 import { apiClient } from "../clients/appClients";
 
-export const useGetCharactersDetails = (
+export const useGetCharacterDetails = (
   id: string
 ): {
   characterDetails: any;
@@ -11,7 +11,7 @@ export const useGetCharactersDetails = (
   const rickAndMortyApiClient = apiClient({});
 
   const fetcher = (url: string) =>
-    rickAndMortyApiClient.get(url).then((response) => response.data);
+    rickAndMortyApiClient.get(url).then((res) => res.data);
   const shouldFetch = !!rickAndMortyApiClient;
 
   const url = shouldFetch
@@ -23,6 +23,7 @@ export const useGetCharactersDetails = (
     revalidateOnFocus: false,
     revalidateOnReconnect: false,
   });
+
   return {
     characterDetails: data || null,
     characterDetailsLoading: isValidating,

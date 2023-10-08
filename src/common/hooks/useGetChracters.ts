@@ -10,7 +10,7 @@ export const useGetChracters = (): {
   const rickAndMortyApiClient = apiClient({});
 
   const fetcher = (url: string) =>
-    rickAndMortyApiClient.get(url).then((response) => response.data);
+    rickAndMortyApiClient.get(url).then((res) => res.data);
   const shouldFetch = !!rickAndMortyApiClient;
 
   const url = shouldFetch ? "https://rickandmortyapi.com/api/character" : null;

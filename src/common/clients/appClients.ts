@@ -1,7 +1,8 @@
 import axios from "axios";
 
 export const apiClient = (options: { token?: string }) => {
-  if (!process.env.REACT_APP_URL) console.warn("cannot find appConfig baseUrl");
+  if (!process.env.REACT_APP_API_URL)
+    console.warn("cannot find appConfig baseUrl");
 
   const apiClient = axios.create({
     baseURL: process.env.REACT_APP_API_URL,
@@ -10,5 +11,6 @@ export const apiClient = (options: { token?: string }) => {
       ...(options.token && { Authorization: `Bearer: ${options.token}` }),
     },
   });
+
   return apiClient;
 };

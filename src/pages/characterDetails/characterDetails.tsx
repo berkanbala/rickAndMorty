@@ -1,13 +1,13 @@
 import styles from "./characterDetails.module.scss";
 import { useParams } from "react-router-dom";
-import { useGetCharactersDetails } from "../../common/hooks/useGetCharacterDetails";
+import { useGetCharacterDetails } from "../../common/hooks/useGetCharacterDetails";
 import { useGetEpisode } from "../../common/hooks/useGetEpisode";
 import classNames from "classnames";
 export const CharacterDetails = () => {
   const { id } = useParams();
 
   const { characterDetails, characterDetailsLoading, characterDetailsError } =
-    useGetCharactersDetails(id || "");
+    useGetCharacterDetails(id ?? "");
 
   const { episode, episodeError, episodeLoading } = useGetEpisode(
     characterDetails?.episode[0]
@@ -23,7 +23,7 @@ export const CharacterDetails = () => {
     <div className={styles.container}>
       <div className={styles.title}>{characterDetails?.name}</div>
       <div className={styles.content}>
-        <img alt="" className={styles.image} src={characterDetails?.image} />
+        <img className={styles.image} src={characterDetails?.image} alt="" />
         <div className={styles.grad}>
           <div className={styles.status}>
             <span
@@ -34,13 +34,15 @@ export const CharacterDetails = () => {
             ></span>
             {characterDetails?.status} - {characterDetails?.species}
           </div>
+
           <div className={styles.text}>
             <span>Last Known Location</span>
-            <span>{characterDetails?.location?.name} </span>
+            <span>{characterDetails?.location?.name}</span>
           </div>
+
           <div className={styles.text}>
-            <span>First Seen</span>
-            <span>{episode?.name} </span>
+            <span>First Seen </span>
+            <span>{episode?.name}</span>
           </div>
         </div>
       </div>

@@ -11,7 +11,7 @@ export const useGetEpisode = (
   const rickAndMortyApiClient = apiClient({});
 
   const fetcher = (url: string) =>
-    rickAndMortyApiClient.get(url).then((response) => response.data);
+    rickAndMortyApiClient.get(url).then((res) => res.data);
   const shouldFetch = !!rickAndMortyApiClient;
 
   const url = shouldFetch ? endpoint : null;
@@ -21,6 +21,7 @@ export const useGetEpisode = (
     revalidateOnFocus: false,
     revalidateOnReconnect: false,
   });
+
   console.log(data);
 
   return {

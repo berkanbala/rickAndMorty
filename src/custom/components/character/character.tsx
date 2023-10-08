@@ -21,12 +21,13 @@ export const Character = (props: Props) => {
       className={styles.container}
       onClick={() => handleClick(character?.id)}
     >
+      {/* <Link to={`details/${character?.id}`}> */}
       <div className={styles.image}>
-        <img alt="" className={styles.image} src={character?.image} />
+        <img src={character?.image} alt="" className={styles.image} />
       </div>
       <div className={styles.info}>
         <div className={styles.title}>
-          <span className={styles.chracterName}>{character?.name} </span>
+          <span className={styles.chracterName}>{character?.name}</span>
           <div className={styles.status}>
             <span
               className={classNames(
@@ -37,19 +38,21 @@ export const Character = (props: Props) => {
             {character?.status} - {character?.species}
           </div>
         </div>
+
         <div className={styles.text}>
           <span>Last Known Location</span>
-          <span>{character?.location?.name} </span>
+          <span>{character?.location?.name}</span>
         </div>
+
         <div className={styles.text}>
-          <span>First Seen</span>
-          <span>{episode?.name} </span>
+          <span>First Seen </span>
+          <span>{episode?.name}</span>
         </div>
       </div>
+      {/* </Link> */}
     </div>
   );
 };
-
 interface Props {
   character: {
     name: string;
