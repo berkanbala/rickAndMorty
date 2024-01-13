@@ -9,7 +9,9 @@ export const Header = (props: Props) => {
   return (
     <div className={classNames(className, styles.container)}>
       <ul>
-        <li>The Rick and Morty</li>
+        <li>
+          <Link to="/">The Rick and Morty</Link>
+        </li>
         <li>
           <Link to="/">Home</Link>
         </li>

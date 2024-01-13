@@ -21,9 +21,12 @@ export const Character = (props: Props) => {
       className={styles.container}
       onClick={() => handleClick(character?.id)}
     >
-      {/* <Link to={`details/${character?.id}`}> */}
       <div className={styles.image}>
-        <img src={character?.image} alt="" className={styles.image} />
+        <img
+          src={character?.image}
+          className={styles.image}
+          alt="characterImage"
+        />
       </div>
       <div className={styles.info}>
         <div className={styles.title}>
@@ -49,7 +52,6 @@ export const Character = (props: Props) => {
           <span>{episode?.name}</span>
         </div>
       </div>
-      {/* </Link> */}
     </div>
   );
 };

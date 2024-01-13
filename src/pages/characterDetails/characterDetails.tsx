@@ -23,7 +23,11 @@ export const CharacterDetails = () => {
     <div className={styles.container}>
       <div className={styles.title}>{characterDetails?.name}</div>
       <div className={styles.content}>
-        <img className={styles.image} src={characterDetails?.image} alt="" />
+        <img
+          className={styles.image}
+          src={characterDetails?.image}
+          alt="characterDetailsImage"
+        />
         <div className={styles.grad}>
           <div className={styles.status}>
             <span
