@@ -1,7 +1,7 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 import styles from "./character.module.scss";
 import classNames from "classnames";
-import { useGetEpisode } from "../../../common/hooks/useGetEpisode";
+import { useGetEpisode } from "common/hooks/useGetEpisode";
 
 export const Character = (props: Props) => {
   const navigate = useNavigate();
@@ -9,24 +9,21 @@ export const Character = (props: Props) => {
 
   const handleClick = (id: number) => navigate(`details/${id}`);
 
-  const { episode, episodeError, episodeLoading } = useGetEpisode(
-    character?.episode[0]
-  );
+  // const { episode, episodeError, episodeLoading } = useGetEpisode(
+  //   character?.episode[0]
+  // );
 
-  if (episodeLoading) return <div>loading...</div>;
-  if (episodeError) return <div>failed to load</div>;
+  // if (episodeLoading) return <div>loading...</div>;
+  // if (episodeError) return <div>failed to load</div>;
 
   return (
     <div
       className={styles.container}
       onClick={() => handleClick(character?.id)}
     >
+      {/* <Link to={`details/${character?.id}`}> */}
       <div className={styles.image}>
-        <img
-          src={character?.image}
-          className={styles.image}
-          alt="characterImage"
-        />
+        <img src={character?.image} alt="image" className={styles.image} />
       </div>
       <div className={styles.info}>
         <div className={styles.title}>
@@ -43,18 +40,20 @@ export const Character = (props: Props) => {
         </div>
 
         <div className={styles.text}>
-          <span>Last Known Location</span>
+          <span>Location</span>
           <span>{character?.location?.name}</span>
         </div>
 
         <div className={styles.text}>
-          <span>First Seen </span>
-          <span>{episode?.name}</span>
+          <span>Origin </span>
+          <span>{character?.origin?.name}</span>
         </div>
       </div>
+      {/* </Link> */}
     </div>
   );
 };
+
 interface Props {
   character: {
     name: string;
@@ -64,5 +63,6 @@ interface Props {
     id: number;
     location: { name: string; url: string };
     episode: string[];
+    origin: { name: string; url: string };
   };
 }

@@ -1,5 +1,5 @@
 import useSWR from "swr";
-import { apiClient } from "../clients/appClients";
+import { apiClient } from "common/clients/appClients";
 
 export const useGetCharacterDetails = (
   id: string
@@ -24,6 +24,7 @@ export const useGetCharacterDetails = (
     revalidateOnReconnect: false,
   });
 
+  console.log(data);
   return {
     characterDetails: data || null,
     characterDetailsLoading: isValidating,

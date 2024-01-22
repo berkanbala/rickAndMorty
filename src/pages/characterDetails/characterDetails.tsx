@@ -1,23 +1,24 @@
+import { useParams } from "react-router";
+import { useGetCharacterDetails } from "common/hooks/useGetCharacterDetails";
 import styles from "./characterDetails.module.scss";
-import { useParams } from "react-router-dom";
-import { useGetCharacterDetails } from "../../common/hooks/useGetCharacterDetails";
-import { useGetEpisode } from "../../common/hooks/useGetEpisode";
 import classNames from "classnames";
+import { useGetEpisode } from "common/hooks/useGetEpisode";
+
 export const CharacterDetails = () => {
   const { id } = useParams();
 
   const { characterDetails, characterDetailsLoading, characterDetailsError } =
-    useGetCharacterDetails(id ?? "");
+    useGetCharacterDetails(id!);
 
-  const { episode, episodeError, episodeLoading } = useGetEpisode(
-    characterDetails?.episode[0]
-  );
+  // const { episode, episodeError, episodeLoading } = useGetEpisode(
+  //   characterDetails?.episode[0]
+  // );
 
   if (characterDetailsLoading) return <div>failed to load</div>;
   if (characterDetailsError) return <div>loading...</div>;
 
-  if (episodeLoading) return <div>loading...</div>;
-  if (episodeError) return <div>failed to load</div>;
+  // if (episodeLoading) return <div>loading...</div>;
+  // if (episodeError) return <div>failed to load</div>;
 
   return (
     <div className={styles.container}>
@@ -26,7 +27,7 @@ export const CharacterDetails = () => {
         <img
           className={styles.image}
           src={characterDetails?.image}
-          alt="characterDetailsImage"
+          alt="character img"
         />
         <div className={styles.grad}>
           <div className={styles.status}>
@@ -44,10 +45,10 @@ export const CharacterDetails = () => {
             <span>{characterDetails?.location?.name}</span>
           </div>
 
-          <div className={styles.text}>
+          {/* <div className={styles.text}>
             <span>First Seen </span>
             <span>{episode?.name}</span>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

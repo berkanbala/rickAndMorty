@@ -1,5 +1,5 @@
 import useSWR from "swr";
-import { apiClient } from "../clients/appClients";
+import { apiClient } from "common/clients/appClients";
 
 export const useGetEpisode = (
   endpoint: string
@@ -22,7 +22,7 @@ export const useGetEpisode = (
     revalidateOnReconnect: false,
   });
 
-  console.log(data);
+  // console.log(data);
 
   return {
     episode: data || null,

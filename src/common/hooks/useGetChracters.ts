@@ -1,7 +1,9 @@
 import useSWR from "swr";
-import { apiClient } from "../clients/appClients";
+import { apiClient } from "common/clients/appClients";
+// import { ICharacters } from "common/interfaces/characters";
 
 export const useGetChracters = (): {
+  // characters: ICharacters[];
   characters: any;
   charactersLoading: boolean;
   charactersError: any;
