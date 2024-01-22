@@ -6,7 +6,6 @@ export const Footer = (props: Props) => {
 
   return (
     <div className={classNames(className, styles.container)}>
-      {/* © Copyright 2023 | All Rights Reserved */}
       &copy; {new Date().getFullYear()} <span> |Rick And Morty App| </span>
     </div>
   );

@@ -1,0 +1,30 @@
+%boxshadow {
+  box-shadow: 4px 4px 9.6px #a09999, 0 8px 18px #000000;
+}
+
+.container {
+  display: flex;
+  text-transform: uppercase;
+  font: 500 44px/1 RobotoCondensed Bold, Trebuchet MS, Helvetica, Arial,
+    sans-serif;
+  transition: font-size 0.2s;
+  background-size: contain;
+  background-color: #fff;
+  height: 565px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    display: flex;
+    width: 300px;
+    height: 350px;
+  }
+
+  .content {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+  }
+}

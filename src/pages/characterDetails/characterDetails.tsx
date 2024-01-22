@@ -2,7 +2,7 @@ import { useParams } from "react-router";
 import { useGetCharacterDetails } from "common/hooks/useGetCharacterDetails";
 import styles from "./characterDetails.module.scss";
 import classNames from "classnames";
-import { useGetEpisode } from "common/hooks/useGetEpisode";
+import { Loading } from "common/components/ui/loading/loading";
 
 export const CharacterDetails = () => {
   const { id } = useParams();
@@ -10,15 +10,8 @@ export const CharacterDetails = () => {
   const { characterDetails, characterDetailsLoading, characterDetailsError } =
     useGetCharacterDetails(id!);
 
-  // const { episode, episodeError, episodeLoading } = useGetEpisode(
-  //   characterDetails?.episode[0]
-  // );
-
+  if (characterDetailsError) return <Loading />;
   if (characterDetailsLoading) return <div>failed to load</div>;
-  if (characterDetailsError) return <div>loading...</div>;
-
-  // if (episodeLoading) return <div>loading...</div>;
-  // if (episodeError) return <div>failed to load</div>;
 
   return (
     <div className={styles.container}>
@@ -45,10 +38,10 @@ export const CharacterDetails = () => {
             <span>{characterDetails?.location?.name}</span>
           </div>
 
-          {/* <div className={styles.text}>
-            <span>First Seen </span>
-            <span>{episode?.name}</span>
-          </div> */}
+          <div className={styles.text}>
+            <span>Gender </span>
+            <span>{characterDetails?.gender}</span>
+          </div>
         </div>
       </div>
     </div>

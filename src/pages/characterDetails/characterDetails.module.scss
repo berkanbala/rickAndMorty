@@ -9,7 +9,7 @@
   box-shadow: 4px 4px 9.6px #a09999, 0 8px 18px #000000;
 }
 .container {
-  width: 360px;
+  width: 500px;
   color: #454545;
   display: grid;
   justify-items: stretch;
@@ -20,7 +20,7 @@
   @extend %boxshadow;
 
   .title {
-    font-size: 18px;
+    font-size: 20px;
     background-color: #659c2b;
     color: #000000;
     padding: 24px;
@@ -28,6 +28,7 @@
     display: flex;
     justify-content: center;
     gap: 2px;
+    text-transform: uppercase;
   }
 
   .content {
@@ -45,8 +46,9 @@
     }
     .grad {
       display: grid;
-      align-items: center;
-      justify-items: stretch;
+      justify-items: center;
+      align-content: space-between;
+      width: 300px;
 
       .status {
         padding: 10px;
@@ -71,7 +73,7 @@
         display: flex;
         flex-direction: column;
         font-size: 16px;
-        margin-left: 15px;
+        // margin-left: 15px;
         align-items: center;
         gap: 4px;
 

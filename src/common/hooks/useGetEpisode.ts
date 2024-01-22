@@ -1,17 +1,12 @@
 import useSWR from "swr";
 import { apiClient } from "common/clients/appClients";
 
-export const useGetEpisode = (
-  endpoint: string
-): {
-  episode: any;
-  episodeLoading: boolean;
-  episodeError: any;
-} => {
+export const useGetEpisode = (endpoint: string) => {
   const rickAndMortyApiClient = apiClient({});
 
   const fetcher = (url: string) =>
     rickAndMortyApiClient.get(url).then((res) => res.data);
+
   const shouldFetch = !!rickAndMortyApiClient;
 
   const url = shouldFetch ? endpoint : null;
@@ -21,8 +16,6 @@ export const useGetEpisode = (
     revalidateOnFocus: false,
     revalidateOnReconnect: false,
   });
-
-  // console.log(data);
 
   return {
     episode: data || null,

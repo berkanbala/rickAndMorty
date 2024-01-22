@@ -1,7 +1,6 @@
-import { useNavigate } from "react-router";
 import styles from "./character.module.scss";
 import classNames from "classnames";
-import { useGetEpisode } from "common/hooks/useGetEpisode";
+import { useNavigate } from "react-router";
 
 export const Character = (props: Props) => {
   const navigate = useNavigate();
@@ -9,21 +8,17 @@ export const Character = (props: Props) => {
 
   const handleClick = (id: number) => navigate(`details/${id}`);
 
-  // const { episode, episodeError, episodeLoading } = useGetEpisode(
-  //   character?.episode[0]
-  // );
-
-  // if (episodeLoading) return <div>loading...</div>;
-  // if (episodeError) return <div>failed to load</div>;
-
   return (
     <div
       className={styles.container}
       onClick={() => handleClick(character?.id)}
     >
-      {/* <Link to={`details/${character?.id}`}> */}
       <div className={styles.image}>
-        <img src={character?.image} alt="image" className={styles.image} />
+        <img
+          src={character?.image}
+          alt="chracterImage"
+          className={styles.image}
+        />
       </div>
       <div className={styles.info}>
         <div className={styles.title}>
@@ -38,18 +33,15 @@ export const Character = (props: Props) => {
             {character?.status} - {character?.species}
           </div>
         </div>
-
         <div className={styles.text}>
           <span>Location</span>
           <span>{character?.location?.name}</span>
         </div>
-
         <div className={styles.text}>
           <span>Origin </span>
           <span>{character?.origin?.name}</span>
         </div>
       </div>
-      {/* </Link> */}
     </div>
   );
 };
