@@ -1,45 +1,50 @@
 import { useParams } from "react-router";
-import { useGetCharacterDetails } from "common/hooks/useGetCharacterDetails";
+import { useEffect, useState } from "react";
+import { ICharacters } from "common/models/characters";
 import styles from "./characterDetails.module.scss";
-import classNames from "classnames";
-import { Loading } from "common/components/ui/loading/loading";
 
 export const CharacterDetails = () => {
   const { id } = useParams();
 
-  const { characterDetails, characterDetailsLoading, characterDetailsError } =
-    useGetCharacterDetails(id!);
+  const [characterDetails, setCharacterDetails] = useState<ICharacters>(
+    {} as ICharacters
+  );
 
-  if (characterDetailsError) return <Loading />;
-  if (characterDetailsLoading) return <div>failed to load</div>;
+  useEffect(() => {
+    fetch(`${process.env.REACT_APP_API_URL}/${id}`)
+      .then((response) => response.json())
+      .then((data) => setCharacterDetails(data))
+      .catch((error) => console.warn(error));
+  }, [id]);
+
+  console.log(id);
 
   return (
     <div className={styles.container}>
-      <div className={styles.title}>{characterDetails?.name}</div>
-      <div className={styles.content}>
-        <img
-          className={styles.image}
-          src={characterDetails?.image}
-          alt="character img"
-        />
-        <div className={styles.grad}>
-          <div className={styles.status}>
-            <span
-              className={classNames(
-                styles.dot,
-                characterDetails?.status === "Dead" && styles.redDot
-              )}
-            ></span>
+      <div className={styles.image}>
+        <img src={characterDetails?.image} alt="characterimage" />
+      </div>
+
+      <div className={styles.detail}>
+        <div className={styles.name}>
+          <span>{characterDetails?.name}</span>
+          <span className={styles.span}>
             {characterDetails?.status} - {characterDetails?.species}
-          </div>
+          </span>
+        </div>
 
-          <div className={styles.text}>
-            <span>Last Known Location</span>
-            <span>{characterDetails?.location?.name}</span>
+        <div className={styles.property}>
+          <div className={styles.propertyDetails}></div>
+          <div className={styles.propertyDetails}>
+            <span className={styles.title}>LOCATION</span>
+            <span>{characterDetails?.location?.name} </span>
           </div>
-
-          <div className={styles.text}>
-            <span>Gender </span>
+          <div className={styles.propertyDetails}>
+            <span className={styles.title}>ORIGIN</span>
+            <span>{characterDetails?.origin?.name} </span>
+          </div>
+          <div className={styles.propertyDetails}>
+            <span className={styles.title}>Gender</span>
             <span>{characterDetails?.gender}</span>
           </div>
         </div>

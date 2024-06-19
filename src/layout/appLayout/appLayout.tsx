@@ -1,7 +1,7 @@
 import styles from "./appLayout.module.scss";
 import { Outlet } from "react-router";
 import { Header } from "../../common/components/ui/layout/header/header";
-import { Footer } from "../../common/components/ui/layout/footer/footer";
+import Footer from "common/components/ui/layout/footer/footer";
 
 export const AppLayout = () => {
   return (

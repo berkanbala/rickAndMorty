@@ -1,11 +1,8 @@
-@import "../../common/assets/styles/variables.scss";
-
 .container {
   .content {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
-    margin: 0px 5%;
     padding: 30px 0px;
   }
 }
@@ -14,6 +11,7 @@
   .container {
     .content {
       grid-template-columns: repeat(2, 1fr);
+      margin: auto;
     }
   }
 }
@@ -22,6 +20,7 @@
   .container {
     .content {
       grid-template-columns: repeat(1, 1fr);
+      margin: auto;
     }
   }
 }

@@ -1,90 +1,72 @@
-@import "../../common/assets/styles/variables.scss";
-
-:root {
-  --link-color: #a105a1;
-  --tink-color: #a10505;
-}
-
 %boxshadow {
   box-shadow: 4px 4px 9.6px #a09999, 0 8px 18px #000000;
 }
+
 .container {
-  width: 500px;
-  color: #454545;
-  display: grid;
-  justify-items: stretch;
-  justify-content: stretch;
+  width: 145%;
+  height: 18rem;
   border-radius: 6px;
   overflow: hidden;
+  display: flex;
+  cursor: pointer;
 
   @extend %boxshadow;
 
-  .title {
-    font-size: 20px;
-    background-color: #659c2b;
-    color: #000000;
-    padding: 24px;
-    border-radius: 6px 6px 0 0;
-    display: flex;
-    justify-content: center;
-    gap: 2px;
-    text-transform: uppercase;
+  .image {
+    img {
+      width: 15rem;
+      height: 18rem;
+    }
   }
 
-  .content {
+  .detail {
     display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    background-color: rgba(222, 184, 135, 0.441);
+    flex-direction: column;
+    height: 18rem;
+    background-color: #132045;
+    width: 100%;
+    align-items: center;
 
-    .image {
-      width: 200px;
-      height: 100%;
-      overflow: hidden;
-      border-radius: 0 0 0 5px;
+    .name {
       display: flex;
-    }
-    .grad {
-      display: grid;
+      flex-direction: column;
       justify-items: center;
-      align-content: space-between;
-      width: 300px;
+      justify-content: space-between;
+      font-size: 18px;
+      font-weight: 700;
+      gap: 20px;
+      color: #fff;
+      background-color: #659c2b;
+      color: #000000;
+      padding: 24px;
+      text-transform: uppercase;
+      width: 100%;
+      height: 100px;
+      align-items: center;
 
-      .status {
-        padding: 10px;
-        font-size: 16px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        .dot {
-          width: 8px;
-          height: 8px;
-          border-radius: 50%;
-          background-color: #55cc44;
-          margin-right: 15px;
-        }
-
-        .redDot {
-          background-color: #d63d2e;
-        }
+      .span {
+        color: white;
+        font-size: 15px;
+        font-weight: 500;
       }
-      .text {
+    }
+
+    .property {
+      display: flex;
+      flex-direction: column;
+      color: #fff;
+      gap: 16px;
+      align-items: center;
+
+      .propertyDetails {
         display: flex;
         flex-direction: column;
         font-size: 16px;
-        // margin-left: 15px;
-        align-items: center;
         gap: 4px;
+        align-items: center;
 
-        span {
-          &:first-child {
-            color: $blue;
-          }
-
-          &:last-child {
-            color: #ea0a0aa0;
-          }
+        .title {
+          color: #d1f105;
         }
       }
     }

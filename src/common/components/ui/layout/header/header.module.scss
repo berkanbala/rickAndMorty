@@ -1,6 +1,6 @@
 .container {
-  background-color: #3d414e;
-  user-select: none;
+  background-color: #0a173d;
+  color: #ffff;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -38,25 +38,6 @@
       &:last-child {
         margin-right: 0px;
         height: 28px;
-      }
-    }
-  }
-}
-
-@media (max-width: 500px) {
-  .container {
-    font-size: 15px;
-
-    ul {
-      li {
-        margin-right: 15px;
-
-        &:first-child {
-        }
-
-        &:last-child {
-          margin-left: 10px;
-        }
       }
     }
   }
