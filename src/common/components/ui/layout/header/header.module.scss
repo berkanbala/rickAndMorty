@@ -1,14 +1,16 @@
+@import "../../../../assets/styles/variables.scss";
+
 .container {
-  background-color: #0a173d;
-  color: #ffff;
+  background-color: $blue1;
+  color: $white;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   position: sticky;
   top: 0;
-  box-shadow: 0.2px 0.5px 0.6px rgba(80, 130, 151, 0.824),
-    0.3px 0.8px 1px -1.2px rgba(74, 143, 120, 0.637),
-    0.8px 1.9px 2.3px -2.5px rgba(140, 157, 100, 0.527);
+  box-shadow: 0.2px 0.5px 0.6px $blue2,
+    0.3px 0.8px 1px -1.2px $green1,
+    0.8px 1.9px 2.3px -2.5px $green2;
 
   ul {
     display: flex;

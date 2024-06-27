@@ -1,8 +1,10 @@
+@import "../../../../assets/styles/variables.scss";
+
 .container {
   align-items: center;
   display: flex;
   justify-content: center;
   padding: 10px;
-  background-color: #0a173d;
-  color: #ffff;
+  background-color: $blue1;
+  color: $white;
 }

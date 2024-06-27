@@ -17,8 +17,6 @@ export const CharacterDetails = () => {
       .catch((error) => console.warn(error));
   }, [id]);
 
-  console.log(id);
-
   return (
     <div className={styles.container}>
       <div className={styles.image}>
